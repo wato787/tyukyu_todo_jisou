@@ -10,7 +10,12 @@ console.log(listTodo)
   return (
 <Flex>
     <ul>
-        <li></li>
+      {/* todo普通に表示できそうじゃないですか？ */}
+        {listTodo.map((todo)=> (
+          <li key={todo.id}>
+            {todo.text}
+          </li>
+        ))}
     </ul>
 </Flex>
   )
