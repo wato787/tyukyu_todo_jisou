@@ -19,6 +19,7 @@ export const InputTodos: FC = () => {
       id: UUID.generate(),
       text: todoText,
       status: "未着手",
+      isEdit: false
     };
     const newListTodos = [...listTodo, todo];
     setListTodo(newListTodos);
