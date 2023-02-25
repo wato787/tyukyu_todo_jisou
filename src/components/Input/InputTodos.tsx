@@ -37,6 +37,7 @@ export const InputTodos: FC = () => {
         value={todoText}
         onChange={handleChange}
       />
+
       <Button colorScheme="teal" size="md" onClick={onClickAdd}>
         追加
       </Button>
