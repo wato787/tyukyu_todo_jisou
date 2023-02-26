@@ -7,6 +7,11 @@ export const todoTextState = atom<string>({
   default: "",
 });
 
+// export const editTextState = atom<string>({
+//   key: "editTextState",
+//   default: "",
+// });
+
 export const todoListState = atom<todoli[]>({
   key: "todoListState",
   default: [],

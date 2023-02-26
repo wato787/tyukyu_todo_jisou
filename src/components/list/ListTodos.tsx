@@ -1,11 +1,13 @@
 import { Button, Flex, ListItem, UnorderedList } from "@chakra-ui/react";
 import React from "react";
-import { useRecoilState} from "recoil";
+import { useRecoilState } from "recoil";
 import { todoListState } from "../../recoil/Atom";
 import { todoli } from "../../types/todoli";
 
 export const ListTodos = () => {
   const [listTodo, setListTodo] = useRecoilState<todoli[]>(todoListState);
+  // const [editText,setEditText]= useState('')
+  // const [todoText, setTodoText] = useRecoilState(todoTextState);
 
   // ステータス変更
   const onClickStatusChange = (id: string) => {
@@ -42,8 +44,11 @@ export const ListTodos = () => {
   const handleEdit = (id: string, value: string) => {
     const newTodos = listTodo.map((todo) => {
       if (todo.id === id) {
-        Object.assign(todo.text,{value})
+        return {
+          ...todo,
+          text: value,
         // todo.text = value;
+        };
       }
       return todo;
     });
@@ -64,6 +69,8 @@ export const ListTodos = () => {
     setListTodo(newListTodos);
   };
 
+  
+
   return (
     <Flex justifyContent="center">
       <UnorderedList>
@@ -75,6 +82,7 @@ export const ListTodos = () => {
                 {/* 編集フォームの作成 */}
                 <input
                   type="text"
+                  // placeholder={todo.text}
                   value={todo.text}
                   onChange={(e) => handleEdit(todo.id, e.target.value)}
                 />

@@ -9,7 +9,7 @@ export const InputTodos: FC = () => {
   const [todoText, setTodoText] = useRecoilState(todoTextState);
   const [listTodo, setListTodo] = useRecoilState<todoli[]>(todoListState);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>
     setTodoText(e.target.value);
 
   const onClickAdd = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
